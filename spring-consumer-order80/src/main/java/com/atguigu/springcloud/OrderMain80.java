@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
@@ -16,6 +17,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
+@EnableDiscoveryClient
 //将轮询方式修改为随即方式（name为服务名，指定那个服务用那种负载均衡策略）
 @RibbonClient(name = "CLOUD-PAYMENT-SERVICE",configuration = RandomRule.class)
 public class OrderMain80 {
