@@ -1,4 +1,4 @@
-package springcloud.service;
+package com.atguigu.springcloud.dao;
 
 /**
  * @Package:
@@ -9,15 +9,16 @@ package springcloud.service;
  * @CreateDate: 2021-02-26
  * @Version: v1.0
  */
-//PaymentService
-
+//PaymentDao
 
 import com.atguigu.springcloud.entities.Payment;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-public interface PaymentService {
-    public int create(Payment payment);
+@Mapper
+public interface PaymentDao {
+    int create(Payment payment);
 
-    public Payment getPaymentById(@Param("id") Long id);
+    Payment getPaymentById(@Param("id") Long id);
 }
 
