@@ -13,11 +13,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @CreateDate: 2021-03-02  14:21
  */
 @Component
-public class MyLb implements LoadBalancer{
+public class MyLb{
 
     private AtomicInteger atomicInteger=new AtomicInteger(0);
 
-    @Override
     public ServiceInstance instances(List<ServiceInstance> serviceInstances) {
         int index=getAndIncrement()%serviceInstances.size();
         return serviceInstances.get(index);
