@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  */
 @Component
 //添加@FeignClient注解,指定服务提供方服务名称
-@FeignClient(value = "cloud-payment-hystrix-payment")
+@FeignClient(value = "cloud-payment-hystrix-payment",fallback = PaymentFallbackService.class)
 public interface PaymentHystrixService {
 
 
