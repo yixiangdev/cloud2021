@@ -28,14 +28,14 @@ public class OrderHystrixController {
     @Value("${server.port}")
     private String serverPort;
 
-    @GetMapping("/consumer/payment/hystrix/ok/{id}")
+    @GetMapping("/payment/hystrix/ok/{id}")
     public String paymentInfo_OK(@PathVariable("id") Integer id){
         String result = paymentHystrixService.paymentInfo_OK(id);
         log.info("*******result:"+result);
         return result;
     }
     //添加服务降级相关配置
-    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
+    @GetMapping("/payment/hystrix/timeout/{id}")
     @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1500")  //1.5秒钟以内就是正常的业务逻辑
     })
