@@ -104,6 +104,7 @@
     <module>cloud-config-client-3355</module>
     <module>cloud-stream-rabbitmq-provider8801</module>
     <module>cloud-stream-rabbitmq-consumer8802</module>
+    <module>cloud-alibaba-provider-payment9001</module>
   </modules>
 
   <build>
